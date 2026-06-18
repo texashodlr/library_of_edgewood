@@ -608,6 +608,715 @@ When humans see a bird, they recognize far more than just "bird"—they see a he
 
 ---
 
+## Paper Reviews (July 2026) — Today's Kernel Digest
+
+---
+
+### 57. CloakLM: Obfuscating GPU Memory Layout to Mitigate Model Ex-filtration for Serving
+
+**Source:** arXiv 2606.18400v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.18400v1.pdf`
+
+#### Summary
+
+CloakLM proposes obfuscating GPU memory layout to prevent model exfiltration attacks in LLM serving. By randomizing memory mapping, it becomes significantly harder for attackers to extract model weights from GPU memory during serving.
+
+#### Key Findings
+1. **Memory layout obfuscation** — Randomization prevents model extraction
+2. **Model exfiltration mitigation** — Protects against GPU memory reading attacks
+3. **Serving integration** — Works with vLLM/SGLang serving stacks
+
+#### Actionable Next Steps
+- [ ] Evaluate for multi-tenant inference serving security
+- [ ] Consider for protecting proprietary model weights
+
+---
+
+### 58. SwiftCache: Efficient LLM Serving for Multi-turn Conversations with Heterogeneous KV Cache Sharing
+
+**Source:** arXiv 2606.16135v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.16135v1.pdf`
+
+#### Summary
+
+SwiftCache introduces heterogeneous KV cache sharing for multi-turn conversations, optimizing cache utilization across different conversation contexts and significantly improving throughput for chat-based LLM serving.
+
+#### Key Findings
+1. **Heterogeneous KV cache sharing** — Different sharing strategies per context type
+2. **Multi-turn optimization** — Specifically targets conversational AI
+3. **Cache efficiency** — Reduces memory pressure in long conversations
+
+#### Actionable Next Steps
+- [ ] Implement for vLLM/SGLang inference optimization
+- [ ] Profile KV cache usage improvements
+
+---
+
+### 59. JetFlow: Breaking the Scaling Ceiling of Speculative Decoding with Parallel Tree Drafting
+
+**Source:** arXiv 2606.18394v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.18394v1.pdf`
+
+#### Summary
+
+JetFlow addresses the scaling limitations of speculative decoding by introducing parallel tree drafting, allowing multiple draft branches to be verified simultaneously and significantly improving inference throughput.
+
+#### Key Findings
+1. **Parallel tree drafting** — Multiple speculative paths in parallel
+2. **Scaling ceiling breakthrough** — Overcomes traditional spec-decoding limits
+3. **Draft verification** — Efficient verification of multiple branches
+
+#### Actionable Next Steps
+- [ ] Evaluate for high-throughput inference workloads
+- [ ] Consider integration with vLLM speculative decoding
+
+---
+
+### 60. SMEPilot: Characterizing and Optimizing LLM Inference with Scalable Matrix Extensions
+
+**Source:** arXiv 2606.16332v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.16332v1.pdf`
+
+#### Summary
+
+SMEPilot characterizes CPU Scalable Matrix Extensions (SMEx) for LLM inference optimization, demonstrating significant speedups by leveraging these new CPU instructions for matrix operations critical to transformer inference.
+
+#### Key Findings
+1. **Scalable Matrix Extensions** — New CPU instructions for AI
+2. **CPU-LLM optimization** — Focuses on CPU-based inference
+3. **SMEx benchmarks** — Comprehensive performance analysis
+
+#### Actionable Next Steps
+- [ ] Review for CPU inference optimization opportunities
+- [ ] Consider for edge CPU-based LLM serving
+
+---
+
+### 61. daVinci-kernel: Co-Evolving Skill Selection, Summarization, and Utilization via RL for GPU Kernel Optimization
+
+**Source:** arXiv 2606.16497v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.16497v1.pdf`
+
+#### Summary
+
+daVinci-kernel uses reinforcement learning to co-evolve skill selection, summarization, and utilization for GPU kernel optimization, automatically discovering effective kernel patterns without manual programming.
+
+#### Key Findings
+1. **RL-based kernel selection** — AI-driven kernel optimization
+2. **Skill summarization** — Learns to compress kernel strategies
+3. **GPU kernel generation** — Automated kernel creation
+
+#### Actionable Next Steps
+- [ ] Explore for automated kernel tuning on MI300X
+- [ ] Consider for HIP kernel optimization workflows
+
+---
+
+### 62. Diagonal-Budgeted Trotterization for Efficient Quantum Hamiltonian Simulation
+
+**Source:** arXiv 2606.16959v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.16959v1.pdf`
+
+#### Summary
+
+This paper presents diagonal-budgeted Trotterization for quantum Hamiltonian simulation, optimizing the decomposition of quantum operations for more efficient simulation on GPU-based quantum simulators.
+
+#### Key Findings
+1. **Trotterization optimization** — Improved quantum simulation algorithm
+2. **Quantum Hamiltonian simulation** — Applications in quantum computing
+3. **GPU acceleration** — Leverages GPUs for quantum simulation
+
+#### Actionable Next Steps
+- [ ] Track for quantum computing workflows on GPUs
+
+---
+
+### 63. From Tokens to Regions: CUDA-Sensitive Instruction Tuning for GPU Kernel Generation
+
+**Source:** arXiv 2606.16231v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.16231v1.pdf`
+
+#### Summary
+
+This work introduces CUDA-sensitive instruction tuning for GPU kernel generation, using LLM fine-tuning to produce optimized CUDA kernels specifically tailored to hardware characteristics.
+
+#### Key Findings
+1. **Instruction tuning for CUDA** — LLM-based kernel generation
+2. **Token-to-region mapping** — Understanding CUDA code structure
+3. **Hardware-aware generation** — Architecture-specific optimization
+
+#### Actionable Next Steps
+- [ ] Evaluate for automated CUDA kernel generation
+
+---
+
+### 64. AoiZora: Topology-Aware Auto-Parallel Optimization for Inference of Diffusion Transformers
+
+**Source:** arXiv 2606.17566v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.17566v1.pdf`
+
+#### Summary
+
+AoiZora provides topology-aware auto-parallel optimization specifically for diffusion transformer inference, optimizing computation distribution across accelerator topologies for maximum efficiency.
+
+#### Key Findings
+1. **Topology-aware optimization** — Network topology considerations
+2. **Diffusion transformer inference** — Specialized for image generation
+3. **Auto-parallel** — Automated distribution strategies
+
+#### Actionable Next Steps
+- [ ] Consider for diffusion model serving on multi-GPU systems
+
+---
+
+### 65. A performance portable fast Ewald summation for Stokes flow
+
+**Source:** arXiv 2606.19059v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.19059v1.pdf`
+
+#### Summary
+
+This paper presents a performance-portable fast Ewald summation method for Stokes flow computations, achieving efficient execution across different GPU architectures including AMD GPUs.
+
+#### Key Findings
+1. **Performance portability** — Works across NVIDIA and AMD
+2. **Ewald summation** — Efficient particle interaction计算
+3. **AMD GPU support** — Specifically validates on AMD hardware
+
+#### Actionable Next Steps
+- [ ] Validate on AMD MI300X for HPC workloads
+
+---
+
+### 66. Pulse: Training Acceleration for Large Diffusion Models with Automatic Pipeline Parallelism
+
+**Source:** arXiv 2606.19163v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.19163v1.pdf`
+
+#### Summary
+
+Pulse introduces automatic pipeline parallelism for large diffusion model training, dynamically partitioning computation to maximize GPU utilization and reduce training time.
+
+#### Key Findings
+1. **Pipeline parallelism** — Automatic stage partitioning
+2. **Diffusion model training** — Specialized for image generation models
+3. **Automatic scheduling** — No manual partitioning required
+
+#### Actionable Next Steps
+- [ ] Evaluate for large-scale diffusion model training
+
+---
+
+### 67. Beyond Prediction: Tail-Aware Scheduling for LLM Inference
+
+**Source:** arXiv 2606.18431v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.18431v1.pdf`
+
+#### Summary
+
+Beyond Prediction introduces tail-aware scheduling for LLM inference that specifically targets P99 latency reduction through intelligent request ordering and resource allocation.
+
+#### Key Findings
+1. **Tail-aware scheduling** — Optimizes for worst-case latency
+2. **P99 reduction** — Addresses long-tail latency
+3. **Request ordering** — Intelligent queue management
+
+#### Actionable Next Steps
+- [ ] Implement for latency-sensitive inference serving
+
+---
+
+### 68. TurboServe: Serving Streaming Video Generation Efficiently and Economically
+
+**Source:** arXiv 2606.19271v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.19271v1.pdf`
+
+#### Summary
+
+TurboServe addresses the challenges of serving streaming video generation models, providing efficient and economical deployment strategies for real-time video synthesis workloads.
+
+#### Key Findings
+1. **Streaming video serving** — Real-time video generation
+2. **Efficient deployment** — Resource optimization
+3. **Economic serving** — Cost reduction strategies
+
+#### Actionable Next Steps
+- [ ] Consider for video generation inference serving
+
+---
+
+### 69. Unified KV Pooling to Accelerate Long-Context LLM Serving
+
+**Source:** arXiv 2606.14779v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.14779v1.pdf`
+
+#### Summary
+
+Unified KV Pooling proposes a novel approach to managing KV cache memory for long-context LLM serving, pooling and sharing cache across requests to maximize memory efficiency.
+
+#### Key Findings
+1. **Long-context optimization** — Handles very long sequences
+2. **Unified KV pooling** — Shared cache management
+3. **Memory efficiency** — Reduces KV cache memory footprint
+
+#### Actionable Next Steps
+- [ ] Profile for long-context inference workloads
+
+---
+
+### 70. Bifrost: Hybrid TEE-FHE Inference for Privacy-Preserving Transformer and LLM Serving
+
+**Source:** arXiv 2606.17421v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.17421v1.pdf`
+
+#### Summary
+
+Bifrost combines Trusted Execution Environments (TEE) with Fully Homomorphic Encryption (FHE) for privacy-preserving LLM inference, enabling secure computation on sensitive data.
+
+#### Key Findings
+1. **Hybrid TEE-FHE** — Combined security approaches
+2. **Privacy-preserving inference** — Protects user data
+3. **Confidential computing** — Hardware-backed security
+
+#### Actionable Next Steps
+- [ ] Evaluate for sensitive inference workloads
+
+---
+
+### 71. CUTh-Solver: GPU-Accelerated Sparse Matrix Solver for High-Resolution Thermal Simulation of 3D ICs
+
+**Source:** arXiv 2606.17850v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.17850v1.pdf`
+
+#### Summary
+
+CUTh-Solver presents a GPU-accelerated sparse matrix solver optimized for 3D integrated circuit thermal simulation, enabling high-resolution thermal analysis at unprecedented speeds.
+
+#### Key Findings
+1. **3D thermal simulation** — IC design optimization
+2. **Sparse matrix solver** — GPU-accelerated computation
+3. **High resolution** - Enables finer thermal analysis
+
+#### Actionable Next Steps
+- [ ] Consider for EDA/thermal workloads
+
+---
+
+### 72. Inference Optimal Long Run Variance Estimation with Lugsail Kernels
+
+**Source:** arXiv 2606.17369v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.17369v1.pdf`
+
+#### Summary
+
+This paper presents inference-optimal long run variance estimation using Lugsail kernels, providing statistically rigorous methods for analyzing time-series inference results.
+
+#### Key Findings
+1. **Lugsail kernels** — Novel statistical methodology
+2. **Variance estimation** — Long-run variance analysis
+3. **Statistical rigor** — Improved confidence intervals
+
+#### Actionable Next Steps
+- [ ] Track for inference benchmarking methodology
+
+---
+
+### 73. Kernel-Based Functional Balancing for Causal Inference with Compositional Treatments
+
+**Source:** arXiv 2606.17308v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.17308v1.pdf`
+
+#### Summary
+
+Kernel-based functional balancing provides new methods for causal inference with compositional treatments, using kernel learning to estimate treatment effects more accurately.
+
+#### Key Findings
+1. **Functional balancing** — Novel causal inference approach
+2. **Kernel methods** — Statistical learning techniques
+3. **Compositional treatments** — Complex treatment analysis
+
+#### Actionable Next Steps
+- [ ] Review for ML system optimization research
+
+---
+
+### 74. Plug-and-Adapt: Multimodal Coreference Resolution at First Sight with a Pretrained Alignment Model
+
+**Source:** arXiv 2606.17950v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.17950v1.pdf`
+
+#### Summary
+
+Plug-and-Adapt addresses multimodal coreference resolution by using pretrained alignment models, enabling zero-shot transfer to new domains without fine-tuning.
+
+#### Key Findings
+1. **Multimodal coreference** — Text-image linking
+2. **Pretrained alignment** — Cross-modal representations
+3. **First-sight adaptation** — Zero-shot capabilities
+
+#### Actionable Next Steps
+- [ ] Evaluate for multimodal AI applications
+
+---
+
+### 75. AIA: A 16nm Multicore SoC for Approximate Inference Acceleration Exploiting Non-normalized Knuth-Yao Sampling
+
+**Source:** arXiv 2606.16148v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.16148v1.pdf`
+
+#### Summary
+
+This paper presents a 16nm multicore SoC optimized for approximate inference using non-normalized Knuth-Yao sampling, achieving significant energy efficiency improvements.
+
+#### Key Findings
+1. **Approximate inference** — Accuracy-efficiency trade-offs
+2. **Knuth-Yao sampling** — Efficient random sampling
+3. **16nm SoC** — Custom hardware implementation
+
+#### Actionable Next Steps
+- [ ] Track for edge AI hardware developments
+
+---
+
+### 76. AIA: A Customized Multi-core RISC-V SoC for Discrete Sampling Workloads in 16 nm
+
+**Source:** arXiv 2606.16143v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.16143v1.pdf`
+
+#### Summary
+
+A customized RISC-V SoC for discrete sampling workloads, demonstrating how custom ISA extensions can accelerate probabilistic computing tasks.
+
+#### Key Findings
+1. **RISC-V extensions** — Custom instructions for sampling
+2. **Discrete sampling** — Probabilistic computation
+3. **16nm implementation** — Practical chip design
+
+#### Actionable Next Steps
+- [ ] Monitor for RISC-V AI accelerator developments
+
+---
+
+### 77. From the NYU Ultracomputer to Modern Exascale: A Historical and Architectural Survey of In-Network Computing
+
+**Source:** arXiv 2606.16819v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.16819v1.pdf`
+
+#### Summary
+
+This paper provides a comprehensive historical survey of in-network computing from the NYU Ultracomputer to modern exascale systems, highlighting the evolution of compute-intensive networking.
+
+#### Key Findings
+1. **Historical survey** — From Ultracomputer to exascale
+2. **In-network computing** — RDMA and smart NICs
+3. **Architecture evolution** — 40+ years of progress
+
+#### Actionable Next Steps
+- [ ] Review for infrastructure planning context
+
+---
+
+### 78. Mixed-Precision Communication-Avoiding SGD for Generalized Linear Models on GPUs
+
+**Source:** arXiv 2606.18463v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.18463v1.pdf`
+
+#### Summary
+
+This work presents mixed-precision communication-avoiding SGD for training generalized linear models on GPUs, reducing communication overhead while maintaining accuracy.
+
+#### Key Findings
+1. **Mixed-precision training** — Reduced memory and communication
+2. **Communication avoiding** — Minimize data transfer
+3. **GLM optimization** — Linear models, logistic regression
+
+#### Actionable Next Steps
+- [ ] Evaluate for large-scale GLM training
+
+---
+
+### 79. KATANA: A Fast, Low-Power Mapping of Kalman Filters onto Edge NPUs for Real-Time Tracking
+
+**Source:** arXiv 2606.14992v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.14992v1.pdf`
+
+#### Summary
+
+KATANA maps Kalman filters onto edge NPUs for real-time tracking applications, achieving low-power operation suitable for battery-powered edge devices.
+
+#### Key Findings
+1. **Kalman filter optimization** — State estimation
+2. **Edge NPU mapping** — Specialized hardware mapping
+3. **Real-time tracking** — Low-latency requirements
+
+#### Actionable Next Steps
+- [ ] Consider for edge AI deployment
+
+---
+
+### 80. BIDENT: Heterogeneous Operator-level Mapping for Efficient Edge Inference
+
+**Source:** arXiv 2606.05271v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.05271v1.pdf`
+
+#### Summary
+
+BIDENT provides heterogeneous operator-level mapping for efficient edge inference, optimizing how different neural network operators map to heterogeneous edge hardware.
+
+#### Key Findings
+1. **Heterogeneous mapping** — Cross-device optimization
+2. **Operator-level** — Fine-grained scheduling
+3. **Edge inference** — Efficient deployment
+
+#### Actionable Next Steps
+- [ ] Review for edge deployment optimization
+
+---
+
+### 81. Maestro: Workload-Aware Cross-Cluster Scheduling for LLM-Based Multi-Agent Systems
+
+**Source:** arXiv 2606.12950v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.12950v1.pdf`
+
+#### Summary
+
+Maestro introduces workload-aware cross-cluster scheduling for multi-agent LLM systems, intelligently distributing agent tasks across clusters based on workload characteristics.
+
+#### Key Findings
+1. **Multi-agent scheduling** — Orchestrating multiple agents
+2. **Cross-cluster** — Distributed system optimization
+3. **Workload-aware** - Dynamic resource allocation
+
+#### Actionable Next Steps
+- [ ] Evaluate for multi-agent inference systems
+
+---
+
+### 82. Litespark Inference For CPUs: Ultra-Fast SIMD Framework for Ternary (1.58-bit) Language Models
+
+**Source:** arXiv 2605.06485v2 (May 2026)  
+**Authors:** Various  
+**File:** `2605.06485v1.pdf`
+
+#### Summary
+
+Litespark provides an ultra-fast SIMD framework for running ternary (1.58-bit) language models on CPU, achieving remarkable inference speeds with minimal accuracy loss.
+
+#### Key Findings
+1. **Ternary quantization** — 1.58-bit models
+2. **SIMD optimization** — CPU vector instructions
+3. **Fast CPU inference** — Near-real-time performance
+
+#### Actionable Next Steps
+- [ ] Evaluate for CPU-only inference scenarios
+
+---
+
+### 83. VaultxGPU: GPU-Accelerated Blockchain Consensus
+
+**Source:** arXiv 2606.14007v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.14007v1.pdf`
+
+#### Summary
+
+VaultxGPU accelerates blockchain consensus mechanisms using GPUs, demonstrating significant throughput improvements for proof-of-stake and other consensus protocols.
+
+#### Key Findings
+1. **GPU blockchain** — Consensus acceleration
+2. **Proof-of-stake** — Modern blockchain protocols
+3. **Throughput** — Transaction processing speed
+
+#### Actionable Next Steps
+- [ ] Monitor for blockchain infrastructure
+
+---
+
+### 84. PortBERT: Navigating the Depths of Portuguese Language Models
+
+**Source:** arXiv 2606.02100v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.02100v1.pdf`
+
+#### Summary
+
+PortBERT explores Portuguese language model development, providing insights into multilingual LLM training and evaluation for non-English languages.
+
+#### Key Findings
+1. **Portuguese NLP** — Multilingual model development
+2. **Language-specific tuning** — Specialized training
+3. **Evaluation** — Multilingual benchmarks
+
+#### Actionable Next Steps
+- [ ] Review for multilingual deployment
+
+---
+
+### 85. i1: A Simple and Fully Open Recipe for Strong Text-to-Image Models
+
+**Source:** arXiv 2606.11289v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.11289v1.pdf`
+
+#### Summary
+
+i1 presents a fully open recipe for training strong text-to-image models on TPU infrastructure, providing reproducible training procedures for image generation.
+
+#### Key Findings
+1. **Open recipe** — Reproducible training
+2. **TPU training** — Google infrastructure
+3. **Text-to-image** — Image generation models
+
+#### Actionable Next Steps
+- [ ] Consider for image generation training
+
+---
+
+### 86. Monte Cimone v3: Where RISC-V Stands in High-Performance Computing
+
+**Source:** arXiv 2605.22831v2 (May 2026)  
+**Authors:** Various  
+**File:** `2605.22831v1.pdf`
+
+#### Summary
+
+Monte Cimone v3 benchmarks RISC-V processors for HPC workloads, providing the first comprehensive analysis of RISC-V performance in high-performance computing contexts.
+
+#### Key Findings
+1. **RISC-V benchmarking** — Architecture evaluation
+2. **HPC performance** — Supercomputer workloads
+3. **Architecture comparison** — vs x86 and ARM
+
+#### Actionable Next Steps
+- [ ] Track RISC-V for future infrastructure
+
+---
+
+### 87. Quantum Encryption Resilience Score (QERS) for MQTT, HTTP, and HTTPS under Post-Quantum Cryptography
+
+**Source:** arXiv 2601.13423v1 (Jan 2026)  
+**Authors:** Jonatan Rassekhnia  
+**File:** `2601.13423v1.pdf`
+
+#### Summary
+
+QERS provides a scoring system for evaluating post-quantum cryptography resilience in IoT communication protocols, addressing the upcoming quantum threat to encryption.
+
+#### Key Findings
+1. **Post-quantum cryptography** — Quantum-resistant encryption
+2. **Protocol analysis** — MQTT, HTTP, HTTPS
+3. **Resilience scoring** — Security evaluation framework
+
+#### Actionable Next Steps
+- [ ] Plan for PQC migration in infrastructure
+
+---
+
+### 88. ABI: A tightly integrated, unified, sparsity-aware, reconfigurable, compute near-register file/cache
+
+**Source:** arXiv 2602.14262v3 (Feb 2026)  
+**Authors:** Various  
+**File:** `2602.14262v1.pdf`
+
+#### Summary
+
+ABI presents a novel compute-near-storage architecture with reconfigurable sparsity-aware processing, placing computation close to memory for maximum efficiency.
+
+#### Key Findings
+1. **Near-memory computing** — Computation in memory hierarchy
+2. **Sparsity-aware** — Optimized for sparse workloads
+3. **Reconfigurable** — Flexible architecture
+
+#### Actionable Next Steps
+- [ ] Monitor for near-memory computing trends
+
+---
+
+### 89. The Role of High-Performance GPU Resources in Large Language Model Based Radiology Imaging Diagnosis
+
+**Source:** arXiv 2509.16328v2 (Sep 2025)  
+**Authors:** Jyun-Ping Kao  
+**File:** `2509.16328v1.pdf`
+
+#### Summary
+
+This paper reviews the role of high-performance GPUs in LLM-based radiology imaging diagnosis, analyzing the hardware requirements for clinical AI deployment.
+
+#### Key Findings
+1. **Clinical AI** — Medical imaging with LLMs
+2. **GPU requirements** — Hardware specifications
+3. **Deployment** — Production considerations
+
+#### Actionable Next Steps
+- [ ] Review for medical AI infrastructure planning
+
+---
+
+### 90. FPGA-Accelerated RISC-V ISA Extensions for Efficient Neural Network Inference on Edge Devices
+
+**Source:** arXiv 2511.06955v1 (Nov 2025)  
+**Authors:** Arya Parameshwara, Santosh Hanamappa Mokashi  
+**File:** `2511.06955v1.pdf`
+
+#### Summary
+
+This paper presents FPGA-accelerated RISC-V ISA extensions for efficient edge neural network inference, demonstrating custom instructions that significantly improve efficiency.
+
+#### Key Findings
+1. **RISC-V ISA extensions** — Custom instructions
+2. **FPGA acceleration** — Hardware implementation
+3. **Edge inference** — Low-power AI
+
+#### Actionable Next Steps
+- [ ] Evaluate for edge AI deployments
+
+---
+
+### 91. APU-Accelerated Large Eddy Simulation with the Discontinuous Galerkin Solver GALÆXI
+
+**Source:** arXiv 2606.18927v1 (June 2026)  
+**Authors:** Various  
+**File:** `2606.18927v1.pdf`
+
+#### Summary
+
+This paper demonstrates APU-accelerated large eddy simulation using the GALÆXI discontinuous Galerkin solver, achieving high performance on AMD integrated GPUs.
+
+#### Key Findings
+1. **APU utilization** — Integrated GPU performance
+2. **Discontinuous Galerkin** — High-order CFD method
+3. **AMD support** — Validates on AMD APUs
+
+#### Actionable Next Steps
+- [ ] Consider for CFD workloads on AMD hardware
+
+---
+
 ## Adding New Papers
 
 When adding new papers to this directory, follow this template:

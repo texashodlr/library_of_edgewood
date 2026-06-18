@@ -280,6 +280,286 @@ Collected references from each paper in the June 11, 2026 kernel digest.
 
 ---
 
+## 2606.18400v1 — CloakLM: Obfuscating GPU Memory Layout to Mitigate Model Ex-filtration for Serving
+
+- GPU memory security research
+- Model exfiltration attack mitigation
+- Memory layout randomization techniques
+
+---
+
+## 2606.16135v1 — SwiftCache: Efficient LLM Serving for Multi-turn Conversations
+
+- KV cache sharing optimization
+- Multi-turn conversation handling
+- Heterogeneous cache management
+
+---
+
+## 2606.18394v1 — JetFlow: Breaking the Scaling Ceiling of Speculative Decoding
+
+- Parallel tree drafting
+- Speculative decoding optimization
+- High-throughput inference
+
+---
+
+## 2606.16332v1 — SMEPilot: Characterizing and Optimizing LLM Inference with Scalable Matrix Extensions
+
+- CPU SMEx instructions
+- Scalable Matrix Extensions benchmarks
+- LLM inference optimization
+
+---
+
+## 2606.16497v1 — daVinci-kernel: RL for GPU Kernel Optimization
+
+- Reinforcement learning for kernels
+- Skill selection and summarization
+- GPU kernel generation
+
+---
+
+## 2606.16959v1 — Diagonal-Budgeted Trotterization for Quantum Hamiltonian Simulation
+
+- Quantum simulation algorithms
+- GPU-based quantum computing
+- Trotterization methods
+
+---
+
+## 2606.16231v1 — CUDA-Sensitive Instruction Tuning for GPU Kernel Generation
+
+- LLM-based CUDA generation
+- Hardware-aware kernel synthesis
+- Instruction tuning
+
+---
+
+## 2606.17566v1 — AoiZora: Topology-Aware Auto-Parallel Optimization for Diffusion Transformers
+
+- Diffusion transformer inference
+- Topology-aware optimization
+- Auto-parallel scheduling
+
+---
+
+## 2606.19059v1 — A Performance Portable Fast Ewald Summation for Stokes Flow
+
+- Performance portability
+- AMD GPU validation
+- HPC computational methods
+
+---
+
+## 2606.19163v1 — Pulse: Training Acceleration for Large Diffusion Models
+
+- Pipeline parallelism
+- Diffusion model training
+- Automatic computation partitioning
+
+---
+
+## 2606.18431v1 — Beyond Prediction: Tail-Aware Scheduling for LLM Inference
+
+- P99 latency optimization
+- Request scheduling
+- Tail latency reduction
+
+---
+
+## 2606.19271v1 — TurboServe: Serving Streaming Video Generation
+
+- Video generation serving
+- Resource optimization
+- Economic deployment
+
+---
+
+## 2606.14779v1 — Unified KV Pooling for Long-Context LLM Serving
+
+- Long-context optimization
+- KV cache pooling
+- Memory efficiency
+
+---
+
+## 2606.17421v1 — Bifrost: Hybrid TEE-FHE Inference for Privacy-Preserving LLM Serving
+
+- Trusted Execution Environments
+- Fully Homomorphic Encryption
+- Privacy-preserving inference
+
+---
+
+## 2606.17850v1 — CUTh-Solver: GPU-Accelerated Sparse Matrix Solver for 3D IC Thermal Simulation
+
+- Sparse matrix solvers
+- Thermal simulation
+- IC design tools
+
+---
+
+## 2606.17369v1 — Inference Optimal Long Run Variance Estimation with Lugsail Kernels
+
+- Statistical methods
+- Variance estimation
+- Lugsail kernel theory
+
+---
+
+## 2606.17308v1 — Kernel-Based Functional Balancing for Causal Inference
+
+- Causal inference methods
+- Kernel learning
+- Treatment effect estimation
+
+---
+
+## 2606.17950v1 — Plug-and-Adapt: Multimodal Coreference Resolution
+
+- Multimodal AI
+- Coreference resolution
+- Zero-shot transfer
+
+---
+
+## 2606.16148v1 — AIA: A 16nm Multicore SoC for Approximate Inference
+
+- Custom SoC design
+- Approximate computing
+- Edge AI hardware
+
+---
+
+## 2606.16143v1 — AIA: A Customized Multi-core RISC-V SoC for Discrete Sampling
+
+- RISC-V architecture
+- Custom ISA extensions
+- Probabilistic computing
+
+---
+
+## 2606.16819v1 — From the NYU Ultracomputer to Modern Exascale
+
+- In-network computing history
+- RDMA evolution
+- Exascale systems
+
+---
+
+## 2606.18463v1 — Mixed-Precision Communication-Avoiding SGD for GLMs
+
+- SGD optimization
+- Communication avoiding
+- Mixed-precision training
+
+---
+
+## 2606.14992v1 — KATANA: Fast, Low-Power Mapping of Kalman Filters onto Edge NPUs
+
+- Kalman filter optimization
+- Edge NPU mapping
+- Real-time tracking
+
+---
+
+## 2606.05271v1 — BIDENT: Heterogeneous Operator-level Mapping for Edge Inference
+
+- Edge inference optimization
+- Heterogeneous hardware
+- Operator mapping
+
+---
+
+## 2606.12950v1 — Maestro: Workload-Aware Cross-Cluster Scheduling for Multi-Agent Systems
+
+- Multi-agent systems
+- Cross-cluster scheduling
+- Workload-aware resource allocation
+
+---
+
+## 2605.06485v2 — Litespark: Ultra-Fast SIMD Framework for Ternary Language Models
+
+- Ternary quantization
+- CPU SIMD optimization
+- 1.58-bit models
+
+---
+
+## 2606.14007v1 — VaultxGPU: GPU-Accelerated Blockchain Consensus
+
+- Blockchain acceleration
+- Proof-of-stake
+- GPU consensus
+
+---
+
+## 2606.02100v1 — PortBERT: Portuguese Language Models
+
+- Multilingual NLP
+- Portuguese language models
+- BERT fine-tuning
+
+---
+
+## 2606.11289v1 — i1: A Simple and Fully Open Recipe for Strong Text-to-Image Models
+
+- Text-to-image generation
+- TPU training
+- Open recipes
+
+---
+
+## 2605.22831v2 — Monte Cimone v3: Where RISC-V Stands in HPC
+
+- RISC-V benchmarking
+- HPC performance analysis
+- Architecture comparison
+
+---
+
+## 2601.13423v1 — Quantum Encryption Resilience Score (QERS) for Post-Quantum Cryptography
+
+- Post-quantum cryptography
+- Protocol security evaluation
+- IoT security
+
+---
+
+## 2602.14262v3 — ABI: Compute Near-Register File/Cache Architecture
+
+- Near-memory computing
+- Sparsity-aware processing
+- Reconfigurable architecture
+
+---
+
+## 2509.16328v2 — The Role of High-Performance GPU Resources in LLM-Based Radiology
+
+- Medical AI
+- GPU requirements
+- Clinical deployment
+
+---
+
+## 2511.06955v1 — FPGA-Accelerated RISC-V ISA Extensions for Edge Neural Network Inference
+
+- RISC-V ISA extensions
+- FPGA acceleration
+- Edge AI
+
+---
+
+## 2606.18927v1 — APU-Accelerated Large Eddy Simulation with GALÆXI
+
+- AMD APU performance
+- Discontinuous Galerkin
+- CFD simulation
+
+---
+
 ## Useful External References
 
 ### GPU/Accelerator Documentation
