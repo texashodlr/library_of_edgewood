@@ -466,9 +466,140 @@ Collected references from each paper in the June 11, 2026 kernel digest.
 
 ## 2606.05271v1 — BIDENT: Heterogeneous Operator-level Mapping for Edge Inference
 
-- Edge inference optimization
-- Heterogeneous hardware
-- Operator mapping
+---
+
+## 2606.20474v1 — UltraQuant: 4-bit KV Caching for Context-Heavy Agents
+
+- Inference Systems / KV Cache Optimization
+- Key findings: 4-bit KV compression, TurboQuant rotation, agent workload focus, vLLM integration
+- arXiv: https://arxiv.org/abs/2606.20474
+- PDF: https://arxiv.org/pdf/2606.20474v1.pdf
+
+---
+
+## 2606.18394v1 — JetFlow: Breaking the Scaling Ceiling of Speculative Decoding with Parallel Tree Drafting
+
+- Inference Optimization / Speculative Decoding
+- Key findings: Parallel tree drafting, breaks scaling ceiling, causality-efficiency dilemma, throughput improvement
+- arXiv: https://arxiv.org/abs/2606.18394
+- PDF: https://arxiv.org/pdf/2606.18394v1.pdf
+
+---
+
+## 2606.18400v1 — CloakLM: Obfuscating GPU Memory Layout to Mitigate Model Ex-filtration
+
+- Security / GPU Memory
+- Key findings: Memory layout obfuscation, multi-tenant security, hardware substrate risk, model ex-filtration prevention
+- arXiv: https://arxiv.org/abs/2606.18400
+- PDF: https://arxiv.org/pdf/2606.18400v1.pdf
+
+---
+
+## 2606.16135v1 — SwiftCache: Efficient LLM Serving for Multi-turn Conversations with Heterogeneous KV Cache Sharing
+
+- Memory / KV Cache
+- Key findings: Heterogeneous KV cache sharing, multi-turn optimization, HBM capacity management, CPU/SSD offloading
+- arXiv: https://arxiv.org/abs/2606.16135
+- PDF: https://arxiv.org/pdf/2606.16135v1.pdf
+
+---
+
+## 2606.14779v1 — Unified KV Pooling to Accelerate Long-Context LLM Serving
+
+- Memory / Long-Context
+- Key findings: Long-context bottleneck, 30.7s TTFT (3x requirement), serialized retrieval, KV pooling optimization
+- arXiv: https://arxiv.org/abs/2606.14779
+- PDF: https://arxiv.org/pdf/2606.14779v1.pdf
+
+---
+
+## 2606.20537v1 — Execution-State Capsules: Graph-Bound Execution-State Checkpoint and Restore
+
+- CUDA / Checkpoint-Restore
+- Key findings: Execution state management beyond KV cache, CUDA Graphs integration, low-latency serving, Physical-AI
+- arXiv: https://arxiv.org/abs/2606.20537
+- PDF: https://arxiv.org/pdf/2606.20537v1.pdf
+
+---
+
+## 2606.20005v1 — StreamKL: Fast and Memory-Efficient KL Divergence for Boosting Attention Distillation
+
+- Training / Knowledge Distillation
+- Key findings: Streaming KL divergence, memory efficiency, attention matrix optimization, teacher-student distillation
+- arXiv: https://arxiv.org/abs/2606.20005
+- PDF: https://arxiv.org/pdf/2606.20005v1.pdf
+
+---
+
+## 2606.20381v1 — Rethinking Shrinkage Bias in LLM FP4 Pretraining
+
+- Quantization / FP4
+- Key findings: FP4 quantization challenges, shrinkage bias geometric origin, UFP4 recipe, model quality impact
+- arXiv: https://arxiv.org/abs/2606.20381
+- PDF: https://arxiv.org/pdf/2606.20381v1.pdf
+
+---
+
+## 2606.19746v1 — SAC: Disaggregated KV Cache System for Sparse Attention LLMs with CXL
+
+- Memory / CXL
+- Key findings: CXL disaggregation, sparse attention optimization, fine-grained KV fetching, long-context serving
+- arXiv: https://arxiv.org/abs/2606.19746
+- PDF: https://arxiv.org/pdf/2606.19746v1.pdf
+
+---
+
+## 2606.19667v1 — CacheWeaver: Cache-Aware Evidence Ordering for Efficient Grounded RAG Inference
+
+- RAG / Inference Systems
+- Key findings: RAG prefill cost optimization, evidence ordering, vLLM integration, document sharing detection
+- arXiv: https://arxiv.org/abs/2606.19667
+- PDF: https://arxiv.org/pdf/2606.19667v1.pdf
+
+---
+
+## 2606.19535v1 — FloatDoor: Platform-Triggered Backdoors in LLMs
+
+- Security / LLM Deployment
+- Key findings: Platform-specific backdoors, deployment awareness, supply chain risk, hardware-dependent behavior
+- arXiv: https://arxiv.org/abs/2606.19535
+- PDF: https://arxiv.org/pdf/2606.19535v1.pdf
+
+---
+
+## 2606.13740v1 — Efficient On-Device Diffusion LLM Inference with Mobile NPU
+
+- Mobile / NPU
+- Key findings: Mobile NPU optimization, diffusion LLM, parallel denoising, edge inference latency
+- arXiv: https://arxiv.org/abs/2606.13740
+- PDF: https://arxiv.org/pdf/2606.13740v1.pdf
+
+---
+
+## 2606.20437v1 — HEPTv2: End-to-End Efficient Point Transformer for Charged Particle Reconstruction
+
+- HPC / Physics
+- Key findings: High-energy physics, point transformer, HL-LHC scale, sparse data processing
+- arXiv: https://arxiv.org/abs/2606.20437
+- PDF: https://arxiv.org/pdf/2606.20437v1.pdf
+
+---
+
+## 2606.19989v1 — Online Dynamic Batching with Formal Guarantees for LLM Training
+
+- Training / Batching
+- Key findings: Dynamic batching, online guarantees, training cost prediction, transformer optimization
+- arXiv: https://arxiv.org/abs/2606.19989
+- PDF: https://arxiv.org/pdf/2606.19989v1.pdf
+
+---
+
+## 2606.20246v1 — Finetuning Vision-Language-Action Models Requires Fewer Layers Than You Think
+
+- Training / VLA Models
+- Key findings: Layer efficiency, compute savings, VLA fine-tuning, architectural insights
+- arXiv: https://arxiv.org/abs/2606.20246
+- PDF: https://arxiv.org/pdf/2606.20246v1.pdf
 
 ---
 

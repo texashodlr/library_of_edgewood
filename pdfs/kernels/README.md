@@ -6,6 +6,351 @@ This directory contains papers related to GPU architecture, AI accelerator syste
 
 ---
 
+### 62. UltraQuant: 4-bit KV Caching for Context-Heavy Agents
+
+**Source:** arXiv 2606.20474v1 (June 2026)  
+**Authors:** Inesh Chakrabarti, David Limpus, Aditi Ghai Rana, Bowen Bao, Spandan Tiwari, Thiago Crepaldi, Ashish Sirasao  
+**File:** `2606.20474v1`
+
+#### Summary
+
+Context-heavy agents place unusual pressure on the KV cache: long prefixes are reused across many short turns, while concurrency determines whether the serving system can keep GPUs utilized. This paper studies 4-bit KV-cache compression for this setting, using TurboQuant-style rotation and codebook quantization as a quality anchor, with vLLM FP8 KV caching as the baseline.
+
+#### Key Findings
+1. **4-bit KV compression** — Achieves significant memory reduction while maintaining quality for multi-turn agent workloads
+2. **TurboQuant rotation** — Uses rotation-based quantization to preserve attention precision
+3. **Agent workload focus** — Specifically addresses the pattern of long prefix + many short turns
+4. **vLLM integration** — Built on top of vLLM's existing FP8 KV cache
+
+#### Actionable Next Steps
+- [ ] Test 4-bit KV cache on MI300X with your vLLM agent workloads
+- [ ] Benchmark memory savings vs. quality degradation for your specific models
+- [ ] Compare with FP8 baseline on asrock
+
+---
+
+### 63. JetFlow: Breaking the Scaling Ceiling of Speculative Decoding with Parallel Tree Drafting
+
+**Source:** arXiv 2606.18394v1 (June 2026)  
+**Authors:** Lanxiang Hu, Zhaoxiang Feng, Yulun Wu, Haoran Yuan, Yujie Zhao, Yu-Yang Qian, Bojun Wang, Daxin Jiang, Yibo Zhu, Tajana Rosing, Hao Zhang  
+**File:** `2606.18394v1`
+
+#### Summary
+
+Speculative decoding (SD) accelerates autoregressive LLMs by drafting multiple tokens and verifying them in parallel, but faces a scaling limitation: increasing the draft budget improves speed only when acceptance remains high and drafting overhead stays low. This ceiling has been difficult to break because prior head-based SD methods face a causality-efficiency dilemma. JetFlow introduces parallel tree drafting to break through this ceiling.
+
+#### Key Findings
+1. **Parallel tree drafting** — Increases draft budget while maintaining acceptance rates
+2. **Breaks scaling ceiling** — Goes beyond what traditional speculative decoding can achieve
+3. **Causality-efficiency dilemma** — Solves the fundamental tradeoff in head-based SD
+4. **Inference throughput** — Directly applicable to vLLM/SGLang serving optimization
+
+#### Actionable Next Steps
+- [ ] Evaluate JetFlow integration with vLLM on asrock
+- [ ] Benchmark throughput improvements for your inference workloads
+- [ ] Test with different model sizes (7B, 70B, etc.)
+
+---
+
+### 64. CloakLM: Obfuscating GPU Memory Layout to Mitigate Model Ex-filtration
+
+**Source:** arXiv 2606.18400v1 (June 2026)  
+**Authors:** (Various - see paper)  
+**File:** `2606.18400v1`
+
+#### Summary
+
+Large foundation models deployed on third-party and shared accelerator infrastructure face a practical risk of model ex-filtration that existing defenses do not fully address. In common serving deployments, the model provider controls the VM or bare-metal serving stack and trusts the drivers and runtime of its own accelerators, but does not control the surrounding hardware substrate. CloakLM introduces GPU memory layout obfuscation to prevent model extraction.
+
+#### Key Findings
+1. **Memory layout obfuscation** — Prevents rowhammer-style model extraction attacks
+2. **Multi-tenant security** — Critical for shared GPU infrastructure
+3. **Hardware substrate risk** — Addresses gap in traditional VM/container security
+4. **Practical defense** — Works on existing GPU hardware without special features
+
+#### Actionable Next Steps
+- [ ] Review CloakLM for Tensorwave multi-tenant deployment scenarios
+- [ ] Evaluate security implications for customer workloads on shared hardware
+- [ ] Consider memory obfuscation as a feature for GPU cloud offerings
+
+---
+
+### 65. SwiftCache: Efficient LLM Serving for Multi-turn Conversations with Heterogeneous KV Cache Sharing
+
+**Source:** arXiv 2606.16135v1 (June 2026)  
+**Authors:** Jianmin Hu, Minxian Xu, Sa Wang, Chong Ma, Min Shen, Kejiang Ye, Lin Qu, Chengzhong Xu  
+**File:** `2606.16135v1`
+
+#### Summary
+
+Multi-turn conversation is a fundamental scenario in LLM applications. As the conversation evolves, historical tokens accumulate continuously. Existing systems cache KV pairs to avoid redundant computation, but limited GPU memory (HBM) capacity often forces these KV caches to be offloaded to CPU memory or SSD, making KV cache relocation a bottleneck.
+
+#### Key Findings
+1. **Heterogeneous KV cache sharing** — Strategies for CPU/SSD vs HBM caching
+2. **Multi-turn optimization** — Specifically addresses conversation-style workloads
+3. **Memory pressure** — Tackles the HBM capacity limitation for long conversations
+4. **Offloading strategy** — Intelligent KV cache placement across memory tiers
+
+#### Actionable Next Steps
+- [ ] Compare SwiftCache with your existing KV cache strategies
+- [ ] Evaluate for chatbot workloads on asrock
+- [ ] Test heterogeneous sharing for long conversation scenarios
+
+---
+
+### 66. Unified KV Pooling to Accelerate Long-Context LLM Serving
+
+**Source:** arXiv 2606.14779v1 (June 2026)  
+**Authors:** Minchul Kang, Changyong Shin, Jinwoo Jeong, Jaerim Park, Woohyun Kim, Bonyul Gu, Dongwoo Kang, Gyeongsik Yang, Chuck Yoo  
+**File:** `2606.14779v1`
+
+#### Summary
+
+The scaling of LLMs toward long-context inference has shifted the primary serving system bottleneck from computation to memory capacity. Existing mechanisms for KV cache management were not designed for long contexts. This paper observes significant inefficiencies in current KV caching: high serving latency (~30.7s), exceeding the typical TTFT requirement of 10s by more than 3x.
+
+#### Key Findings
+1. **Long-context bottleneck** — Memory capacity replaces compute as the limiting factor
+2. **30.7s TTFT** — 3x worse than typical 10s requirement
+3. **Serialized retrieval** — Host-memory and SSD access becomes the bottleneck
+4. **KV pooling optimization** — Unified approach to reduce retrieval latency
+
+#### Actionable Next Steps
+- [ ] Profile TTFT on your long-context workloads (32K+ tokens)
+- [ ] Evaluate KV pooling strategies for 128K context scenarios
+- [ ] Consider memory-tier strategies for your serving infrastructure
+
+---
+
+### 67. Execution-State Capsules: Graph-Bound Execution-State Checkpoint and Restore for Low-Latency, Small-Batch, On-Device Physical-AI Serving
+
+**Source:** arXiv 2606.20537v1 (June 2026)  
+**Authors:** Liang Su  
+**File:** `2606.20537v1`
+
+#### Summary
+
+Mainstream LLM serving reuses prefix work through paged or radix KV caches (vLLM's PagedAttention and SGLang's RadixAttention), which manage one positionally addressable fragment of execution state. This paper introduces Execution-State Capsules for graph-bound checkpoint/restore, enabling low-latency serving for small-batch, on-device Physical-AI scenarios.
+
+#### Key Findings
+1. **Execution state management** — Beyond KV cache to full execution state
+2. **CUDA Graphs integration** — Extends existing CUDA Graph infrastructure
+3. **Low-latency serving** — Optimized for small-batch scenarios
+4. **Physical-AI focus** — Targets robotics/embedded AI workloads
+
+#### Actionable Next Steps
+- [ ] Review for potential use in low-latency inference scenarios
+- [ ] Evaluate checkpoint/restore overhead for your serving patterns
+- [ ] Consider for batch size = 1 optimization
+
+---
+
+### 68. StreamKL: Fast and Memory-Efficient KL Divergence for Boosting Attention Distillation
+
+**Source:** arXiv 2606.20005v1 (June 2026)  
+**Authors:** Guangda Liu, Yiquan Wang, Chengwei Li, Wenhao Chen, Jing Lin, Yiwu Yao, Danning Ke, Wenchao Ding, Jieru Zhao  
+**File:** `2606.20005v1`
+
+#### Summary
+
+Attention distillation, which trains one attention distribution to match another by minimizing KL divergence, is widely used in knowledge distillation, model compression, continual learning, and sparse-attention LLM training. However, existing approaches materialize both attention distributions in GPU memory. StreamKL provides memory-efficient streaming computation.
+
+#### Key Findings
+1. **Streaming KL divergence** — Avoids materializing full attention matrices
+2. **Memory efficiency** — Critical for large model distillation
+3. **Knowledge distillation** — Directly applicable to model compression workflows
+4. **Sparse attention** — Relevant for long-context LLM training
+
+#### Actionable Next Steps
+- [ ] Evaluate StreamKL for your model compression workflows
+- [ ] Benchmark memory savings during knowledge distillation
+- [ ] Consider for teacher-student distillation on MI300X
+
+---
+
+### 69. Rethinking Shrinkage Bias in LLM FP4 Pretraining: Geometric Origin, Systemic Impact, and UFP4 Recipe
+
+**Source:** arXiv 2606.20381v1 (June 2026)  
+**Authors:** Qian Zhao, Kunlong Chen, Changxin Tian, Zhonghui Jiang, Haitao Zhang, Chaofan Yu, Peijie Jiang, Mingliang Gong, Jia Liu, Ziqi Liu, Zhiqiang Zhang, Jun Zhou  
+**File:** `2606.20381v1`
+
+#### Summary
+
+This paper examines shrinkage bias in FP4 (4-bit floating point) LLM pretraining. It investigates the geometric origin of the bias, its systemic impact on model quality, and proposes the UFP4 recipe for addressing it.
+
+#### Key Findings
+1. **FP4 quantization** — 4-bit floating point pretraining challenges
+2. **Shrinkage bias** — Geometric origin and systemic impact
+3. **UFP4 recipe** — Proposed solution for FP4 pretraining
+4. **Quantization** — Directly relevant to model quantization for inference
+
+#### Actionable Next Steps
+- [ ] Review UFP4 recipe for your quantization workflows
+- [ ] Test FP4 quantization on MI300X inference
+- [ ] Evaluate quality impact on your specific models
+
+---
+
+### 70. SAC: Disaggregated KV Cache System for Sparse Attention LLMs with CXL
+
+**Source:** arXiv 2606.19746v1 (June 2026)  
+**Authors:** Ruiyang Ma, Teng Ma, Junru Li, Hantian Zha, Xuchun Shang, Qingda Hu, Zheng Liu, Xinjun Yang, Tao Ma, Guojie Luo  
+**File:** `2606.19746v1`
+
+#### Summary
+
+The scaling of LLMs toward long-context inference has shifted the primary serving bottleneck from computation to memory capacity. Traditional solutions for dense attention rely on RDMA-based disaggregated memory pools, performing coarse-grained fetching of the entire prefix KV cache. This paper introduces SAC for sparse attention LLMs with CXL (Compute Express Link).
+
+#### Key Findings
+1. **CXL disaggregation** — Uses CXL for memory pooling in inference
+2. **Sparse attention** — Optimized for models with sparse attention patterns
+3. **Fine-grained fetching** — Avoids fetching entire KV cache
+4. **Long-context serving** — Addresses memory capacity bottleneck
+
+#### Actionable Next Steps
+- [ ] Evaluate CXL for your multi-GPU serving infrastructure
+- [ ] Test sparse attention patterns with disaggregated memory
+- [ ] Consider for 128K+ context scenarios
+
+---
+
+### 71. CacheWeaver: Cache-Aware Evidence Ordering for Efficient Grounded RAG Inference
+
+**Source:** arXiv 2606.19667v1 (June 2026)  
+**Authors:** Kaizhen Tan, Rong Gu, Mingyuan Li  
+**File:** `2606.19667v1`
+
+#### Summary
+
+Retrieval-Augmented Generation (RAG) improves factual grounding but also lengthens prompts and raises prefill cost. Prefix caching in serving engines such as vLLM reduces this cost only when requests share the same token prefix. In grounded generation, adjacent queries may retrieve different documents but share common evidence. CacheWeaver provides cache-aware evidence ordering.
+
+#### Key Findings
+1. **RAG optimization** — Addresses prefill cost in grounded generation
+2. **Evidence ordering** — Reorders cached evidence across queries
+3. **vLLM integration** — Works with existing vLLM prefix caching
+4. **Document sharing** — Identifies common evidence across different retrievals
+
+#### Actionable Next Steps
+- [ ] Integrate CacheWeaver for your RAG workloads
+- [ ] Benchmark prefill cost reduction on asrock
+- [ ] Test with multi-document retrieval scenarios
+
+---
+
+### 72. FloatDoor: Platform-Triggered Backdoors in LLMs
+
+**Source:** arXiv 2606.19535v1 (June 2026)  
+**Authors:** Nils Loose, Jonas Sander, Felix Mächtle, Thomas Eisenbarth  
+**File:** `2606.19535v1`
+
+#### Summary
+
+Large language models are increasingly deployed in sensitive settings such as software engineering, where their outputs directly shape downstream artifacts. This paper shows that an identical model can produce measurably different outputs depending on the deployment platform — a concerning attack surface.
+
+#### Key Findings
+1. **Platform-specific backdoors** — Model behaves differently based on deployment platform
+2. **Security concern** — Critical for sensitive deployments
+3. **Deployment awareness** — Model output varies with hardware/software stack
+4. **Supply chain risk** — Potential for compromised deployment environments
+
+#### Actionable Next Steps
+- [ ] Audit your deployment pipelines for platform-specific behavior
+- [ ] Review model security for production workloads
+- [ ] Consider reproducible deployment configurations
+
+---
+
+### 73. Efficient On-Device Diffusion LLM Inference with Mobile NPU
+
+**Source:** arXiv 2606.13740v1 (June 2026)  
+**Authors:** Tuowei Wang, Yanfan Sun, Ju Ren  
+**File:** `2606.13740v1`
+
+#### Summary
+
+Diffusion large language models (dLLMs) accelerate generation by denoising multiple tokens in parallel, making them attractive for latency-sensitive mobile inference. However, repeated denoising introduces substantial computation. Mobile neural processing units (NPUs) offer high throughput but require careful optimization.
+
+#### Key Findings
+1. **Mobile NPU optimization** — Targets smartphone/edge NPUs
+2. **Diffusion LLM** — Parallel denoising for faster generation
+3. **Edge inference** — Latency-sensitive mobile scenarios
+4. **NPU-specific** — Different optimization strategy than GPU serving
+
+#### Actionable Next Steps
+- [ ] Track mobile NPU trends for future edge deployment
+- [ ] Review dLLM optimization techniques for potential GPU adaptation
+- [ ] Consider for future on-device Tensorwave services
+
+---
+
+### 74. HEPTv2: End-to-End Efficient Point Transformer for Charged Particle Reconstruction
+
+**Source:** arXiv 2606.20437v1 (June 2026)  
+**Authors:** Siqi Miao, Shitij Govil, Jack P. Rodgers, Mia Liu, Javier Duarte, Shih-Chieh Hsu, Yuan-Tang Chou, Pan Li  
+**File:** `2606.20437v1`
+
+#### Summary
+
+Charged-particle tracking — the reconstruction of particle trajectories from sparse detector measurements — is a fundamental inference problem in high-energy physics. At the High-Luminosity Large Hadron Collider (HL-LHC), tracking is extremely challenging due to the combinatorial complexity. HEPTv2 provides an end-to-end efficient solution.
+
+#### Key Findings
+1. **High-energy physics** — Particle tracking for LHC workloads
+2. **Point Transformer** — Efficient architecture for sparse data
+3. **HL-LHC scale** — Extreme combinatorial complexity
+4. **GPU optimization** — Potentially relevant for your HPC workloads
+
+#### Actionable Next Steps
+- [ ] Review for potential HPC/ physics workloads
+- [ ] Evaluate transformer architecture for your use cases
+- [ ] Consider for future Tensorwave HPC services
+
+---
+
+### 75. Online Dynamic Batching with Formal Guarantees for LLM Training
+
+**Source:** arXiv 2606.19989v1 (June 2026)  
+**Authors:** Dian Li, Zekun Wang, Yaoru Wang, Jiahong Yan  
+**File:** `2606.19989v1`
+
+#### Summary
+
+Modern LLM training breaks a core assumption behind offline batch samplers: the true training cost of a sample is only observable after preprocessing, augmentation, templating, tokenization, and multimodal visual-token expansion. This paper provides online dynamic batching with formal guarantees.
+
+#### Key Findings
+1. **Dynamic batching** — Adaptive batch sizing during training
+2. **Online guarantees** — Formal proofs for batching decisions
+3. **Training optimization** — Addresses pre-processing dependent costs
+4. **LLM training** — Specifically targets transformer training
+
+#### Actionable Next Steps
+- [ ] Evaluate dynamic batching for your training workflows
+- [ ] Benchmark training throughput improvements
+- [ ] Consider for multi-GPU training on MI300X
+
+---
+
+### 76. Finetuning Vision-Language-Action Models Requires Fewer Layers Than You Think
+
+**Source:** arXiv 2606.20246v1 (June 2026)  
+**Authors:** Gia-Binh Nguyen, Trong-Bao Ho, Thien-Loc Ha, Khoa Vo, Philip Lund Møller, Quang T. Nguyen, Long Dinh, Tuan Dam, Vu Duong, Tung M. Luu, Trung Le, Tran Nguyen Le, Minh Vu, An Thai Le, Ngan Le, Daniel So  
+**File:** `2606.20246v1`
+
+#### Summary
+
+Vision-language-action (VLA) robot datasets have revolutionized robotic manipulation, yet their multi-billion parameter architectures impose prohibitive computational burdens during downstream fine-tuning. This paper reveals a highly non-trivial architectural characteristic: fine-tuning requires fewer layers than typically assumed.
+
+#### Key Findings
+1. **Layer efficiency** — VLA fine-tuning needs fewer layers than expected
+2. **Compute savings** — Significant reduction in fine-tuning cost
+3. **VLA models** — Vision-language-action for robotics
+4. **Architectural insight** — Important for training efficiency
+
+#### Actionable Next Steps
+- [ ] Apply layer reduction insight to your fine-tuning workflows
+- [ ] Benchmark compute savings on MI300X
+- [ ] Consider for vision model fine-tuning
+
+---
+
 ### 1. Fleet: Hierarchical Task-based Abstraction for Megakernels on Multi-Die GPUs
 
 **Source:** arXiv 2604.15379v1 (April 2026)  
